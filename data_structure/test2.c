@@ -388,3 +388,290 @@
 //}
 
 
+//int main()
+//{
+//	int a = 10;
+//	int* p = &a;
+//	printf("%p", &a);
+//	return 0;
+//}
+
+
+
+	//int a = 10;
+	//int* pa = &a;
+
+	//char ch = 'w';
+	//char * pc = &ch;
+	//printf("%p\n", pc);
+
+	//int a = 100;
+	//int* pa = &a;
+	//*pa = 0;
+	//printf("%d\n", a);
+	//printf("%p\n", &a);
+
+
+	//printf("%zd\n", sizeof(char *));
+	//printf("%zd\n", sizeof(short *));
+	//printf("%zd\n", sizeof(int *));
+	//printf("%zd\n", sizeof(double *));
+
+
+//int main()
+//{
+//	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
+//	int* p = &arr[0];
+//	int i = 0;
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	for (i = 0; i < sz; i++)
+//	{
+//		printf("%d ", *(p + i)); // p + i 这里就是指针+整数
+//		// printf("%d ", arr[i]);
+//	}
+//
+//	return 0;
+//}
+
+
+//int my_strlen(char* s)
+//{
+//	char* p = s;
+//	while (*p != '\0')
+//	{
+//		p++;
+//	}
+//	return p - s;
+//}
+//int main()
+//{
+//	printf("%d\n", my_strlen("abc"));
+//	return 0;
+//}
+
+
+// 写一个代码打印1-100之间所有3的倍数的数字
+//int main()
+//{
+//	for (int i = 1; i <= 100; i++)
+//	{
+//		if (i % 3 == 0)
+//		{
+//			printf("%d ", i);
+//		}
+//	}
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	int a = 0, b = 0, c = 0;
+//	scanf("%d%d%d", &a, &b, &c);
+//
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	int a = 0, b = 0;
+//	for (a = 1, b = 1; a <= 100; a++)
+//	{
+//		if (b >= 20) break;
+//		if (b % 3 == 1)
+//		{
+//			b = b + 3;
+//			continue;
+//		}
+//		b = b - 5;
+//	}
+//	printf("%d\n", a);
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	int a = 0, b = 0;
+//	scanf("%d %d", &a, &b);
+//	int temp = 0;
+//	while (b != 0)
+//	{
+//		temp = a % b;
+//		a = b;
+//		b = temp;
+//	}
+//	printf("最大公约数是：%d", a);
+//	return 0;
+//}
+
+
+
+// 猜数字游戏
+
+//void game()
+//{
+//	int r = rand() % 100 + 1;
+//	int guess = 0;
+//	int count = 5; // 只能猜5次
+//	while (1)
+//	{
+//		printf("\n你还有%d次机会\n", count);
+//		printf("请猜数字: ");
+//		scanf("%d", &guess);
+//		if (guess < r)
+//		{
+//			printf("猜小了\n");
+//		}
+//		else if (guess > r)
+//		{
+//			printf("猜大了\n");
+//		}
+//		else
+//		{
+//			printf("恭喜你，猜对了\n");
+//			break;
+//		}
+//		count--;
+//		if (count == 0)
+//		{
+//			printf("你失败了，正确数字是：%d\n", r);
+//			break;
+//		}
+//	}
+//}
+//
+//void menu()
+//{
+//	printf("输入1，开始游戏！\n");
+//	printf("输入0，结束游戏！\n");
+//}
+//int main()
+//{
+//	int input = 0;
+//	srand((unsigned int)time(NULL));
+//	do
+//	{
+//		menu();
+//		printf("请输入选择：");
+//		scanf("%d", &input);
+//		switch (input)
+//		{
+//		case 1:
+//			game();
+//			break;
+//		case 0:
+//			printf("游戏结束！");
+//			break;
+//		default:
+//			printf("选择错误，重新开始！");
+//			break;
+//		}
+//	} while (input);
+//
+//	return 0;
+//}
+
+
+
+//int main()
+//{
+//	for (int i = 1; i <= 9; i++)
+//	{
+//		for (int j = 1; j <= i; j++)
+//		{
+//			printf("%d*%d=%-4d", j, i, i * j);
+//		}
+//		printf("\n");
+//	}
+//	return 0;
+//}
+
+
+// 编写程序数一下 1到 100 的所有整数中出现多少个数字9
+//int main()
+//{
+//	int count = 0;
+//	for (int i = 1; i <= 100; i++)
+//	{
+//		int n = i;
+//		while (n > 0)
+//		{
+//			if (n % 10 == 9)
+//			{
+//				count++;
+//			}
+//			n /= 10;
+//		}
+//	}
+//	printf("一共有：%d个\n", count);
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	/*
+//	一、什么是素数？
+//	素数（质数）：只能被1和自身整除的数
+//	例如：
+//	● 7 是素数（只能被 1 和 7 整除）
+//	● 8 不是（可以被 2、4 整除）
+//	*/
+//	// 打印100~200之间的素数
+//	for (int i = 100; i <= 200; i++)
+//	{
+//		int is_prime = 1; // 默认是素数
+//
+//		// 判断i是否是素数
+//		for (int j = 2; j < i; j++)
+//		{
+//			if (i % j == 0)  // 不是素数
+//			{
+//				is_prime = 0;   
+//				break;
+//			}
+//		}
+//
+//		if (is_prime == 1)
+//		{
+//			printf("%d ", i);
+//		}
+//	}
+//	return 0;
+//}
+
+
+// 打印1000年到2000年之间的闰年
+//int main()
+//{
+//	for (int year = 1000; year <= 2000; year++)
+//	{
+//		if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0)
+//		{
+//			printf("%d " ,year);
+//		}
+//	}
+//	return 0;
+//}
+
+
+int main()
+{
+	// 编写程序：数一下 1到100 的所有整数中出现多少个数字9
+	int count = 0;
+	for (int i = 1; i <= 100; i++)
+	{
+		int n = i;
+		while (n > 0)
+		{
+			if (n % 10 == 9)
+			{
+				count++;
+			}
+			n /= 10;
+		}
+	}
+	printf("数字9一共出现了 %d 次\n", count);
+}

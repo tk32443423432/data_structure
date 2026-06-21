@@ -657,21 +657,375 @@
 //}
 
 
-int main()
+//int main()
+//{
+//	// 编写程序：数一下 1到100 的所有整数中出现多少个数字9
+//	int count = 0;
+//	for (int i = 1; i <= 100; i++)
+//	{
+//		int n = i;
+//		while (n > 0)
+//		{
+//			if (n % 10 == 9)
+//			{
+//				count++;
+//			}
+//			n /= 10;
+//		}
+//	}
+//	printf("数字9一共出现了 %d 次\n", count);
+//}
+
+
+
+//int main()
+//{
+//	int n = 0;
+//	while (scanf("%d", &n) != EOF)
+//	{
+//		for (int i = 0; i < n; i++)  // 外循环为行
+//		{
+//			for (int j = 0; j < n; j++)  // 内循环为列
+//			{
+//				if (i == j || i + j == n - 1)
+//					//最关键的地方，正斜线为[i][i]处是*， 反斜杠为[i][n-1-j]处是*，一行打印1个或2个*
+//					printf("*");
+//				else
+//					printf(" ");
+//			}
+//			printf("\n");
+//		}
+//	}
+//	return 0;
+//}
+
+
+// 指针-指针
+//int my_strlen(char *s)
+//{
+//	char* p = s;
+//	while (*p != '\0')
+//		p++;
+//	return p - s;
+//}
+//int main()
+//{
+//	printf("%d\n", my_strlen("abc"));
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
+//	int* p = &arr[0];
+//	printf("&arr = %p\n", &arr);  // 这三个指向的数组地址是一样的
+//	printf("&arr[0] = %p\n", &arr[0]);  // 数组的首元素地址和arr[0]是一个地址的
+//	printf("p = %p\n", p);  // p是指针指向的元素
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
+//	int* p = &arr[0];
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	while (p < arr + sz)  // 指针的大小比较
+//	{
+//		printf("%d ", *p);
+//		p++;
+//	}
+//	return 0;
+//}
+
+
+
+//int main()
+//{
+//	//int m = 0;
+//	//m = 20;
+//	//const int n = 0;
+//	//n = 20;  // 此时n被const常量所修饰，所以不能修改值
+//
+//
+//	const int n = 0;
+//	printf("n = %d\n", n);
+//	int* p = &n;
+//	*p = 20;
+//	printf("n = %d\n", n);
+//
+//}
+
+
+//int main()
+//{
+//	int* p1;
+//	int* const p;
+//	return 0;
+//}
+
+
+//void test1()
+//{
+//	int n = 10;
+//	int m = 20;
+//	int* p = &n;
+//	*p = 20;
+//	p = &m;
+//}
+//
+//void test2()
+//{
+//
+//}
+
+
+
+// 代码2 - 测试const放在*的左边
+//void test2()
+//{
+//	int n = 10;
+//	int m = 20;
+//	const int* p = &n;
+//	// *p = 20; // no
+//	p = &m;  // yes
+//	return 0;
+//}
+//
+//
+//
+//int main()
+//{
+//	test2();
+//	return 0;
+//}
+
+
+
+//int main()
+//{
+//	//int* p; // 局部变量指针未初始化，默认为随机值
+//
+//
+//	int arr[10] = { 0 };
+//	int* p = &arr[0];
+//	int i = 0;
+//	for (i = 0; i <= 11; i++)
+//	{
+//		// 当指针指向的范围超出数组arr的范围时，p就是野指针
+//		*(p++) = i;
+//	}
+//	return 0;
+//}
+
+
+
+//int* test()
+//{
+//	int n = 100;
+//	return &n;
+//}
+//int main()
+//{
+//	int* p = test();
+//	printf("%d\n", *p);	
+//	return 0;
+//}
+
+
+//int mian()
+//{
+//	int num = 0;
+//	int* p1 = &num;
+//	int* p2 = NULL;
+//	return 0;
+//}
+
+//int main()
+//{
+//	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
+//	int* p = &arr[0];
+//	int i = 0;
+//	for (i = 0; i < 10; i++)
+//	{
+//		*(p++) = i;
+//	}
+//	p = NULL;
+//	// 下次使用时，判断p不为空的时候再使用
+//	p = &arr[0];
+//
+//	if (p != NULL)
+//	{
+//
+//	}
+//	return 0;
+//}
+
+
+
+//size_t strlen(const char* str);
+
+//int main()
+//{
+//	char a = "abcde";
+//	printf("%c", strlen(a));
+//	return 0;
+//}
+
+//int my_strlen(const char* str)
+//{
+//	int count = 0;
+//	assert(str);  // 断言
+//	while (*str)
+//	{
+//		count++;
+//		str++;
+//	}
+//	return count;
+//}
+//
+//int main()
+//{
+//	int len = my_strlen("abcdef");
+//	printf("%d\n", len);
+//	return 0;
+//}
+
+
+//void Swap(int* px, int* py)
+//{
+//	int temp = 0;
+//	temp = *px;
+//	*px = *py;
+//	*py = temp;
+//}
+//int main()
+//{
+//	int a = 10;
+//	int b = 20;
+//	printf("调用前：a = %d b = %d\n",a,b);
+//	Swap(&a, &b);
+//	printf("调用后：a = %d b = %d\n", a, b);
+//
+//
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	// 1. 定义一个长度为10的整型数组存放数据
+//	int arr[10] = { 0 };
+//	int sum = 0;
+//	// 2. 使用循环遍历10个整数
+//	double avg = 0.0;
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	printf("请输入10个整数：\n");
+//	for (int i = 0; i < 10; i++)
+//	{
+//		scanf("%d", &arr[i]);
+//		sum += arr[i];
+//	}
+//	avg = sum / 10.0;
+//	printf("平均值为：%.2f\n", avg);
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	// 将数组A中的内容和数组B中的内容进行交换（数组一样大）
+//	int A[] = { 1,2,3,4,5 };
+//	int B[] = { 6,7,8,9,10 };
+//	int sz = sizeof(A) / sizeof(A[0]);
+//
+//	for (int i = 0; i < sz; i++)
+//	{
+//		int temp = A[i];
+//		A[i] = B[i];
+//		B[i] = temp;
+//	}
+//
+//	printf("A: ");
+//	for (int i = 0; i < sz; i++)
+//	{
+//		printf("%d ", A[i]);
+//	}
+//	printf("\nB: ");
+//	for (int j = 0; j < sz; j++)
+//	{
+//		printf("%d ", B[j]);
+//	}
+//	return 0;
+//}
+
+
+// 求10 个整数中最大值
+//int main()
+//{
+//	int num[10] = { 1,2,3,4,5,6,7,8,9,10 };
+//	int sz = sizeof(num) / sizeof(num[0]);
+//	int max = 0;
+//	for (int i = 0; i < sz; i++)
+//	{
+//		for (int j = 1; j < sz; j++)
+//		{
+//			if (num[i] < num[j])
+//			{
+//				max = num[j];
+//			}
+//			else
+//			{
+//				max = num[i];
+//			}
+//		}
+//	}
+//	printf("最大值是：%d\n", max);
+//	return 0;
+//}
+
+
+// 二分查找-函数实现
+// 功能：在一个升序数组中查找指定的数值，找到了就返回下标，找不到就返回-1
+int bin_search(int arr[], int left, int right, int key)
 {
-	// 编写程序：数一下 1到100 的所有整数中出现多少个数字9
-	int count = 0;
-	for (int i = 1; i <= 100; i++)
+	// arr是查找的数组
+	// lefr 是数组的左下标
+	// right 数组的右下标
+	// key 要查找的数字
+	while (left <= right)
 	{
-		int n = i;
-		while (n > 0)
+		int mid = (left + right) / 2;
+
+		if (arr[mid] == key)
 		{
-			if (n % 10 == 9)
-			{
-				count++;
-			}
-			n /= 10;
+			return mid;
+		}
+		else if (arr[mid] < key)
+		{
+			left = mid + 1;
+		}
+		else
+		{
+			right = mid - 1;
 		}
 	}
-	printf("数字9一共出现了 %d 次\n", count);
+	return -1;
+}
+int main()
+{
+	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
+	int key = 5;
+	int result = bin_search(arr, 0, 9, key);
+
+	if (result != -1)
+	{
+		printf("找到了！下标是：%d\n", result);
+	}
+	else
+	{
+		printf("没找到！\n");
+	}
+	return 0;
 }

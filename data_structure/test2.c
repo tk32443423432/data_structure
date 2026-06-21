@@ -988,44 +988,237 @@
 
 // 二分查找-函数实现
 // 功能：在一个升序数组中查找指定的数值，找到了就返回下标，找不到就返回-1
-int bin_search(int arr[], int left, int right, int key)
-{
-	// arr是查找的数组
-	// lefr 是数组的左下标
-	// right 数组的右下标
-	// key 要查找的数字
-	while (left <= right)
-	{
-		int mid = (left + right) / 2;
+//int bin_search(int arr[], int left, int right, int key)
+//{
+//	// arr是查找的数组
+//	// lefr 是数组的左下标
+//	// right 数组的右下标
+//	// key 要查找的数字
+//	while (left <= right)
+//	{
+//		int mid = (left + right) / 2;
+//
+//		if (arr[mid] == key)
+//		{
+//			return mid;
+//		}
+//		else if (arr[mid] < key)
+//		{
+//			left = mid + 1;
+//		}
+//		else
+//		{
+//			right = mid - 1;
+//		}
+//	}
+//	return -1;
+//}
+//int main()
+//{
+//	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
+//	int key = 5;
+//	int result = bin_search(arr, 0, 9, key);
+//
+//	if (result != -1)
+//	{
+//		printf("找到了！下标是：%d\n", result);
+//	}
+//	else
+//	{
+//		printf("没找到！\n");
+//	}
+//	return 0;
+//}
 
-		if (arr[mid] == key)
-		{
-			return mid;
-		}
-		else if (arr[mid] < key)
-		{
-			left = mid + 1;
-		}
-		else
-		{
-			right = mid - 1;
-		}
+//void Multiplication_Table(int num)
+//{
+//	/*
+//	实现一个函数，打印乘法口诀表，口诀表的行数和列数自己指定
+//	如：输入9，输出9*9口诀表，输出12，输出12*12的乘法口诀表。
+//	*/
+//	for (int i = 1; i <= num; i++)
+//	{
+//		for (int j = 1; j <= i; j++)
+//		{
+//			int result = i * j;
+//			printf("%d*%d = %d ", i, j, result);
+//		}
+//		printf("\n");
+//	}
+//}
+//int main()
+//{
+//	int input = 0;
+//	scanf("%d", &input);
+//	Multiplication_Table(input);
+//	return 0;
+//}
+
+
+//void year_leap(int year)
+//{
+//	// 实现函数判断year是不是闰年
+//	if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0)
+//	{
+//		printf("%d年是闰年\n", year);
+//	}
+//	else
+//	{
+//		printf("%d年不是闰年\n", year);
+//	}
+//
+//	return 0;
+//}
+//
+//int main()
+//{
+//	int year = 2020;
+//	year_leap(year);
+//	return 0;
+//}
+
+
+// 函数判断素数
+//int is_prime(int n)
+//{
+//	int j = 0;
+//	for (j = 2; j <= sqrt(n); j++)
+//	{
+//		if (n % j == 0)
+//			return 0;
+//	}
+//	return 1;
+//}
+//int main()
+//{
+//	int i = 0;
+//	for (i = 100; i <= 200; i++)
+//	{
+//		if (is_prime(i))
+//		{
+//			printf("%d ", i);
+//		}
+//	}
+//	return 0;
+//}
+
+
+
+// 1. 初始化数组为全0
+void init(int arr[], int sz)
+{
+	for (int i = 0; i < sz; i++)
+	{
+		arr[i] = 0;
 	}
-	return -1;
 }
+
+// 2. 实现print()，打印数组的每一个元素
+void print(int arr[], int sz)
+{
+
+	for (int i = 0; i < sz; i++)
+	{
+		printf("%d ", arr[i]);
+	}
+}
+
+// 3. 实现reverse()函数，完成数组元素的逆置
+//void reverse(int arr[], int sz)
+//{
+//	int left = 0;
+//	int right = sz - 1;
+//	while (left < right)
+//	{	
+//		int temp = arr[left];
+//		arr[left] = arr[right];
+//		arr[right] = temp;
+//		left++;
+//		right--;
+//	}
+//
+//}
+//int main()
+//{
+//	int arr[] = {1,2,3,4,5,6,7,8,9,10};
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	//init(arr, sz);
+//	printf("逆置前的数组元素：\n");
+//	print(arr,sz);
+//	printf("\n");
+//	reverse(arr, sz);
+//	printf("逆置后的数组元素：\n");
+//	for (int i = 0; i < sz; i++)
+//	{
+//		printf("%d ", arr[i]);
+//	}
+//
+//	return 0;
+//}
+
+
+
+// 喝汽水，1瓶汽水1元，2个空瓶可以换一瓶汽水，给20元，可以喝多少汽水
+
+//int main()
+//{
+//	int money = 20;
+//	int bottle = 0;   // 空瓶
+//	int total = 0;    // 总共喝了多少瓶
+//
+//	// 第一步：先买汽水
+//	total = money;  // 20块钱可以买20瓶汽水
+//	bottle = money;  // 20瓶汽水喝完了，就会产生20个空瓶
+//
+//	// 第二步：用空瓶换汽水
+//	while (bottle >= 2)  // 只要空瓶数量大于等于2，循环就会一直下去
+//	{
+//		int new_soda = bottle / 2;  // 两个空瓶换一瓶汽水,
+//		total += new_soda;
+//
+//		bottle = bottle % 2 + new_soda;
+//	}
+//	printf("一共可以喝：%d 瓶汽水\n", total);
+//	return 0;
+//}
+
+
+
+// 打印菱形
 int main()
 {
-	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
-	int key = 5;
-	int result = bin_search(arr, 0, 9, key);
+	int i = 0; // 行数
+	int j = 0; // 每行的空格数
+	int k = 0; // 每行的星号数
+	
+	// 打印一个7行的菱形
+	// 上半部分(4行)
+	for (i = 1; i <= 4; i++)
+	{
+		for (j = 1; j <= 4 - i; j++)
+		{
+			printf(" ");  // 打印空格
+		}
+		for (k = 1; k <= 2 * i - 1; k++)
+		{
+			printf("*");  // 打印*星号
+		}
+		printf("\n");
+	}
 
-	if (result != -1)
+	// 下半部分(3行)
+	for (i = 1; i <= 3; i++)
 	{
-		printf("找到了！下标是：%d\n", result);
+		for (j = 1; j <= i; j++)
+		{
+			printf(" ");
+		}
+		for (k = 1; k <= 7 - 2 * i; k++)
+		{
+			printf("*");
+		}
+		printf("\n");
 	}
-	else
-	{
-		printf("没找到！\n");
-	}
+
 	return 0;
 }

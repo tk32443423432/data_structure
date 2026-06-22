@@ -1725,47 +1725,163 @@ void init(int arr[], int sz)
 
 
 // 调整奇数偶数的函数
-void reorder(int arr[], int sz)
-{
-	int left = 0;
-	int right = sz - 1;
-	while (left < right)
-	{
-		// 从左找偶数
-		while (left < right && (arr[left] & 1) == 1)
-		{
-			left++;
-		}
-		// 从右找奇数
-		while (left < right && (arr[right] & 1) == 0)
-		{
-			right--;
-		}
-
-		// 交换
-		if (left < right)
-		{
-			int temp = arr[left];
-			arr[left] = arr[right];
-			arr[right] = temp;
-		}
-	}
-}
+//void reorder(int arr[], int sz)
+//{
+//	int left = 0;
+//	int right = sz - 1;
+//	while (left < right)
+//	{
+//		// 从左找偶数
+//		while (left < right && (arr[left] & 1) == 1)
+//		{
+//			left++;
+//		}
+//		// 从右找奇数
+//		while (left < right && (arr[right] & 1) == 0)
+//		{
+//			right--;
+//		}
+//
+//		// 交换
+//		if (left < right)
+//		{
+//			int temp = arr[left];
+//			arr[left] = arr[right];
+//			arr[right] = temp;
+//		}
+//	}
+//}
 
 // 打印函数
-void print(int arr[], int sz)
-{
-	for (int i = 0; i < sz; i++)
-	{
-		printf("%d ", arr[i]);
-	}
-	printf("\n");
-}
+//void print(int arr[], int sz)
+//{
+//	for (int i = 0; i < sz; i++)
+//	{
+//		printf("%d ", arr[i]);
+//	}
+//	printf("\n");
+//}
+//int main()
+//{
+//	int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	reorder(arr, sz);
+//	print(arr, sz);
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	int* p = NULL;
+//	int arr[10] = { 0 };
+//	//p = arr;
+//	//int (*ptr)[10] = &arr;
+//	//p = &arr[0];
+//	//p = &arr;
+//	p = arr;
+//	return 0;
+//}
+
+
+//void print(int *p , int arr[])
+//{
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	while (p < &arr[5])
+//	{
+//		printf("%d ", *p);
+//		p++;
+//	}
+//}
+//int main()
+//{
+//	int arr[] = { 1,2,3,4,5 };
+//	int* p = arr;
+//	print(p, arr);
+//	return 0;
+//}
+
+
+
+// 实现一个对整形数组的冒泡排序
+//void bubble_sort(int arr[], int sz)
+//{
+//	int i = 0;
+//	int j = 0;
+//	for (i = 0; i < sz - 1; i++)  // 控制循环的轮数
+//	{ 
+//		for (j = 0; j < sz - 1 - i; j++)   // 控制每轮比较的次数
+//		{
+//			// 开始交换数字的位置
+//			if (arr[j] > arr[j + 1])  // 交换的是j，跟i没关系
+//			{
+//				int temp = arr[j];
+//				arr[j] = arr[j + 1];
+//				arr[j + 1] = temp;
+//			}
+//		}
+//	}
+//}
+//
+//void print(int arr[], int sz)
+//{
+//	for (int i = 0; i < sz; i++)
+//	{
+//		printf("%d ", arr[i]);
+//	}
+//}
+//int main()
+//{
+//	int arr[] = { 3,1,5,2,8,4 };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	bubble_sort(arr,sz);
+//	print(arr, sz);
+//	return 0;
+//}
+
+
+// 反向函数
+//void reverse(char * left, char * right)
+//{
+//	while (left < right)
+//	{
+//		char temp = *left;
+//		*left = *right;
+//		*right = temp;
+//
+//		left++;
+//		right--;
+//	}
+//}
+//
+//// 字符串左旋的函数
+//void left_rotate(char* str, int k)
+//{
+//	int len = strlen(str);
+//
+//	k %= len;
+//
+//	reverse(str, str + k - 1);
+//	reverse(str + k, str + len - 1);
+//	reverse(str, str + len - 1);
+//}
+//int main()
+//{
+//	char str[] = "ABCDEFG";
+//	left_rotate(str, 2);
+//	printf("%s\n", str); // 输出：CDEFGAB
+//	return 0;
+//}
+
+
 int main()
 {
-	int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
-	int sz = sizeof(arr) / sizeof(arr[0]);
-	reorder(arr, sz);
-	print(arr, sz);
+	int arr[] = { 1,2,3,4,5 };
+	printf("arr = %p\n", arr);
+	printf("arr + 1 = %p\n", arr + 1);
+
+	printf("&arr = %p\n", &arr);
+	printf("&arr + 1 = %p\n", &arr + 1);
+
 	return 0;
 }

@@ -1114,14 +1114,14 @@ void init(int arr[], int sz)
 }
 
 // 2. 实现print()，打印数组的每一个元素
-void print(int arr[], int sz)
-{
-
-	for (int i = 0; i < sz; i++)
-	{
-		printf("%d ", arr[i]);
-	}
-}
+//void print(int arr[], int sz)
+//{
+//
+//	for (int i = 0; i < sz; i++)
+//	{
+//		printf("%d ", arr[i]);
+//	}
+//}
 
 // 3. 实现reverse()函数，完成数组元素的逆置
 //void reverse(int arr[], int sz)
@@ -1185,40 +1185,587 @@ void print(int arr[], int sz)
 
 
 // 打印菱形
+//int main()
+//{
+//	int i = 0; // 行数
+//	int j = 0; // 每行的空格数
+//	int k = 0; // 每行的星号数
+//	
+//	// 打印一个7行的菱形
+//	// 上半部分(4行)
+//	for (i = 1; i <= 4; i++)
+//	{
+//		for (j = 1; j <= 4 - i; j++)
+//		{
+//			printf(" ");  // 打印空格
+//		}
+//		for (k = 1; k <= 2 * i - 1; k++)
+//		{
+//			printf("*");  // 打印*星号
+//		}
+//		printf("\n");
+//	}
+//
+//	// 下半部分(3行)
+//	for (i = 1; i <= 3; i++)
+//	{
+//		for (j = 1; j <= i; j++)
+//		{
+//			printf(" ");
+//		}
+//		for (k = 1; k <= 7 - 2 * i; k++)
+//		{
+//			printf("*");
+//		}
+//		printf("\n");
+//	}
+//
+//	return 0;
+//}
+
+
+//int Fun(int n)
+//{
+//	if (n == 5)
+//		return 2;
+//	else
+//		return 2 * Fun(n + 1);
+//}
+//
+//int main()
+//{
+//	int result = Fun(2);
+//	printf("%d\n", result);
+//	return 0;
+//}
+
+
+// 打印100~1000之间的水仙花数
+//int main()
+//{
+//	int n = 0, hun = 0, ten = 0, units = 0;
+//				// 百位  十位     个位
+//	printf("水仙花数有：");
+//	for (n = 100; n < 1000; n++)
+//	{
+//		hun = n / 100;
+//		ten = (n / 10) % 10;
+//		units = n % 10;
+//		if (n == hun * hun * hun + ten * ten * ten + units * units * units)
+//		{
+//			printf("%d ", n);
+//		}
+//	}
+//	printf("\n");
+//
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	int n = 0;
+//	int term = 0; // 当前项
+//	int sum = 0; // 累加求和用的
+//
+//	printf("请输入一个数字：");
+//	scanf("%d", &n);
+//	for (int i = 0; i < 5; i++)
+//	{
+//		term = term * 10 + n;
+//		sum += term;
+//	}
+//	printf("前 %d 项和是：%d\n", n, sum);
+//	return 0;
+//}
+
+
+
+// 递归和非递归分别实现求n的阶乘（不考虑溢出的问题）
+
+// 递归方法
+//int factor(int num)
+//{
+//	if (num == 1)
+//	{
+//		return 1;
+//	}
+//	return num * factor(num - 1);
+//}
+//
+//int main()
+//{
+//	int num = 5;
+//	int ret = factor(num);
+//	printf("%d\n", ret);
+//	return 0;
+//}
+
+
+// 非递归的方法：迭代
+//int Fact(int num)
+//{
+//	int ret = 1;
+//	for (int i = 1; i <= num; i++)
+//	{
+//		ret *= i;
+//	}
+//	return ret;
+//}
+//int main()
+//{
+//	int n = 0;
+//	printf("请输入一个数字：");
+//	scanf("%d", &n);
+//	int ret = Fact(n);
+//	printf("%d\n",ret);
+//	return 0;
+//}
+
+
+// 递归法：求第n个斐波那契数
+//int fib(int n)
+//{
+//	if (n <= 1) return n;
+//	return fib(n - 1) + fib(n - 2);
+//}
+
+
+// 非递归求第n个斐波那契数
+// 迭代方式
+//int fib(int n)
+//{
+//	int a = 1;
+//	int b = 1;
+//	
+//	if (n == 1 || n == 2)
+//	{
+//		return 1;
+//	}
+//	int next = 0;
+//	//第三项开始推算
+//	for (int i = 3; i <= n; i++)
+//	{
+//		next = a + b;
+//		a = b;
+//		b = next;
+//	}
+//	return b;
+//}
+//int main()
+//{
+//	int num = 0;
+//	printf("请输入一个数字：");
+//	scanf("%d", &num);
+//	int ret = fib(num);
+//	printf("第%d个斐波那契数是：%d\n",num,ret);
+//	return 0;
+//}
+
+
+// 递归实现n的k次方
+//int fact(int n, int k)
+//{
+//	if (k == 0)
+//	{
+//		return 1;
+//	}
+//	else if (k > 0)
+//	{
+//		return n * fact(n, k - 1);
+//	}
+//	else
+//	{
+//		return 1.0 / fact(n, -k);
+//	}
+//}
+//
+//int main()
+//{
+//	int ret = fact(2,5);  // 2的5次方是32
+//	printf("%d\n", ret);
+//	return 0;
+//}
+
+
+//int DigitSum(int n)
+//{
+//	int sum = 0;
+//
+//	if (n < 10)
+//	{
+//		return n;
+//	}
+//	else 
+//	{
+//		return n % 10 + DigitSum(n / 10);
+//	}
+//	return sum;
+//}
+//
+//int main()
+//{
+//	int num = 0;
+//	printf("请输入一个非负整数："); // 输入1729 = 1+7+2+9 = 19
+//	scanf("%d", &num);
+//	int result = DigitSum(num);
+//	printf("%d\n", result);
+//	return 0;
+//}
+
+
+//int func(int num)
+//{
+//	if (num > 9)
+//	{
+//		func(num / 10);
+//	}
+//	printf("%d\n", num % 10);
+//}
+//// 递归方式实现打印一个整数的每一位
+//int main()
+//{
+//	int num = 1729;
+//	func(num);
+//
+//	return 0;
+//}
+
+
+//int i = 0;
+//int main()
+//{
+//	i--;
+//	if (i > sizeof(i))
+//	{
+//		printf(">\n");
+//	}
+//	else
+//	{
+//		printf("<\n");
+//	}
+//	return 0;
+//}
+
+
+
+//int main()
+//{
+//	int arr[] = { 1,2,3,4,5,1,2,3,4 };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	int ret = 0;
+//	for (int i = 0; i < sz; i++)
+//	{
+//		ret ^= arr[i];
+//	}
+//	printf("单身数是：%d\n", ret);
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	int a = 10;
+//	int b = 20;
+//	a = a ^ b;
+//	b = a ^ b;
+//	a = a ^ b;
+//	printf("交换后的数字：\n");
+//	printf("a = %d, b = %d\n", a, b);
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	int a = 5;
+//	printf("%p\n", &a);
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	int arr[] = { 1,2,3,4,5 };
+//	short* p = (short*)arr;
+//	int i = 0;
+//	for (i = 0; i < 4; i++)
+//	{
+//		*(p + i) = 0;
+//	}
+//
+//	for (i = 0; i < 5; i++)
+//	{
+//		printf("%d ", arr[i]);
+//	}
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
+//	int* p = &arr[0];
+//	for (int i = 0; i < 10; i++)
+//	{
+//		printf("%d ", *p);
+//		p++;
+//	}
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	unsigned long pulArray[] = { 6,7,8,9,10 };
+//	unsigned long* pulPtr;
+//	pulPtr = pulArray;
+//	*(pulPtr + 3) += 3; // 6 + 3 + 3 = 12
+//	printf("%d,%d\n", *pulPtr, *(pulPtr + 3));
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	char arr[] = "abcdedg";
+//	size_t len = strlen(arr);
+//	printf("%zu\n", len);  // 7
+//	return 0;
+//}
+
+
+//size_t my_strlen(char* s)
+//{
+//	char* p = s;
+//	while (*p != '\0')
+//		p++;
+//	return p - s;
+//}
+//int main()
+//{
+//	char arr[] = "abcdedg";
+//	size_t len = my_strlen(arr);
+//	printf("%zu\n", len);  // 7
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
+//	int* p = arr;
+//	while (p < &arr[10])
+//	{
+//		printf("%d ", *p);
+//		p++;
+//	}
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
+//	int* p = arr;
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//
+//	while (p <= &arr[sz - 1])
+//	{
+//		printf("%d ", *p);
+//		p++;
+//	}
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	int arr[5] = { 1,2,3,4,5 };
+//	//int* p = arr 
+//	//int* p = arr[0];
+//	//int* p = &arr;
+//	//int* p = &arr[0];
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	int* p = &arr;
+//	for (int i = 0; i < sz; i++)
+//	{
+//		printf("%d ", *p);
+//	}
+//	return 0;
+//}
+
+
+// const修饰指针变量
+
+//// const放在左边
+//int main()
+//{
+//	const int n = 10;
+//	const int* p = &n;
+//	//*p = 20;  // 是不可以修改指针变量所指向的内容
+//	const int m = 30;
+//	p = &m;  // 但是可以修改指针变量的指向
+//	return 0;
+//}
+
+//// const放在右边
+//int main()
+//{
+//	const int n = 20;
+//	int* const p = &n;
+//	*p = 30;  // 是可以修改指针变量指向的内容的
+//	const int m = 40;
+//	// p = &m;  // 但是不能修改指针变量的指向了
+//	return 0;
+//}
+
+
+//// const两边都放
+//int main()
+//{
+//	const int n = 20;
+//	const int* const p = &n;
+//	*p = 30;  // 不可以修改指针变量指向的内容
+//	const int m = 40;
+//	p = &m;  // 也不能修改指针变量的指向了
+//	return 0;
+//}
+
+
+
+//void Func()
+//{
+//
+//}
+//int main()
+//{
+//	
+//	int arr[10] = { 0 };
+//	printf("请输入10个数字：\n");
+//
+//	// 输入
+//	for (int i = 0; i < 10; i++)
+//	{
+//		scanf("%d", &arr[i]);
+//	}
+//
+//	// 输出
+//	for (int i = 0; i < 10; i++)
+//	{
+//		printf("%d ", arr[i]);
+//	}
+//	return 0;
+//}
+
+
+// 用指针来写
+
+//
+//void print(int *p, int sz)
+//{
+//
+//	// 输入
+//	for (int i = 0; i < sz; i++)
+//	{
+//		scanf("%d", p + i);
+//	}
+//
+//	// 输出
+//	for (int i = 0; i < sz; i++)
+//	{
+//		printf("%d ", *(p + i));
+//	}
+//}
+//
+//// 调整奇数偶数的顺序函数
+//void reorder(int arr[], int sz)
+//{
+//	int left = 0;
+//	int right = sz - 1;
+//
+//	while (left <= right)
+//	{
+//		// 从左找偶数
+//		while (left < right && (arr[left] & 1) == 1)
+//		{
+//			left++;
+//		}
+//
+//		// 从右找奇数
+//		while (left < right && (arr[right] & 1) == 0)
+//		{
+//			right--;
+//		}
+//
+//		// 交换
+//		if (left < right)
+//		{
+//			int temp = arr[left];
+//			arr[left] = arr[right];
+//			arr[right] = temp;
+//		}
+//	}
+//
+//	print(arr, sz);
+//}
+//
+//
+//int main()
+//{
+//	int arr[10] = { 0 };
+//	int* p = arr;
+//	printf("请输入10个数字：\n");
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	print(arr, sz);
+//	reorder(arr, sz);
+//
+//	return 0;
+//}
+
+
+// 调整奇数偶数的函数
+void reorder(int arr[], int sz)
+{
+	int left = 0;
+	int right = sz - 1;
+	while (left < right)
+	{
+		// 从左找偶数
+		while (left < right && (arr[left] & 1) == 1)
+		{
+			left++;
+		}
+		// 从右找奇数
+		while (left < right && (arr[right] & 1) == 0)
+		{
+			right--;
+		}
+
+		// 交换
+		if (left < right)
+		{
+			int temp = arr[left];
+			arr[left] = arr[right];
+			arr[right] = temp;
+		}
+	}
+}
+
+// 打印函数
+void print(int arr[], int sz)
+{
+	for (int i = 0; i < sz; i++)
+	{
+		printf("%d ", arr[i]);
+	}
+	printf("\n");
+}
 int main()
 {
-	int i = 0; // 行数
-	int j = 0; // 每行的空格数
-	int k = 0; // 每行的星号数
-	
-	// 打印一个7行的菱形
-	// 上半部分(4行)
-	for (i = 1; i <= 4; i++)
-	{
-		for (j = 1; j <= 4 - i; j++)
-		{
-			printf(" ");  // 打印空格
-		}
-		for (k = 1; k <= 2 * i - 1; k++)
-		{
-			printf("*");  // 打印*星号
-		}
-		printf("\n");
-	}
-
-	// 下半部分(3行)
-	for (i = 1; i <= 3; i++)
-	{
-		for (j = 1; j <= i; j++)
-		{
-			printf(" ");
-		}
-		for (k = 1; k <= 7 - 2 * i; k++)
-		{
-			printf("*");
-		}
-		printf("\n");
-	}
-
+	int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
+	int sz = sizeof(arr) / sizeof(arr[0]);
+	reorder(arr, sz);
+	print(arr, sz);
 	return 0;
 }

@@ -1874,14 +1874,269 @@ void init(int arr[], int sz)
 //}
 
 
+//int main()
+//{
+//	int arr[] = { 1,2,3,4,5 };
+//	printf("arr = %p\n", arr);
+//	printf("arr + 1 = %p\n", arr + 1);
+//
+//	printf("&arr = %p\n", &arr);
+//	printf("&arr + 1 = %p\n", &arr + 1);
+//
+//	return 0;
+//}
+
+// 指针指向的空间释放
+//int* test()
+//{
+//	int n = 100;
+//	return &n; // 这里已经return 返回了，释放掉了资源
+//}
+//int main()
+//{
+//	int* p = test();
+//	printf("hehe\n");  // 只要我
+//	printf("%d\n", *p);  // 再次访问时，就会出现随机地址，访问的就不是原来的地址了
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	int a = 10;
+//	//int* p = &a;  // true
+//	int* p = NULL; // false
+//	assert(p != NULL);  
+//	return 0;
+//}
+
+
+// 计数器
+// 计算字符长度的函数
+//size_t my_strlen(char* p)
+//{
+//	size_t count = 0;
+//	//assert(*p != NULL);  // 断言一下，预防指针为NULL
+//
+//	while (*p != 0)
+//	{
+//		count++;  // 长度++
+//		p++;  // 
+//	}
+//	return count;
+//}
+//int main()
+//{
+//	char arr[] = "abcdef";
+//	size_t len = my_strlen(arr);
+//	printf("%zu\n", len);
+//	return 0;
+//}
+
+
+// 交换两个变量的值，使用函数来进行交换
+//void Swap(int *p1, int *p2)
+//{
+//	int temp = *p1;
+//	*p1 = *p2;
+//	*p2 = temp;
+//}
+//int main()
+//{
+//	int a = 10;
+//	int b = 20;
+//	printf("交换前：\n");
+//	printf("a = %d , b = %d\n", a, b);
+//	Swap(&a, &b);
+//	printf("交换后：\n");
+//	printf("a = %d , b = %d\n", a, b);
+//
+//	return 0;
+//}
+
+
+//size_t my_strlen(const char *p)
+//{
+//	int count = 0;
+//	while (*p != 0)
+//	{
+//		count++;
+//		p++;
+//	}
+//	return count;
+//}
+//int main()
+//{
+//	char ch[] = "abcdef";
+//	size_t len = my_strlen(ch);
+//	printf("%zu\n", len);
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
+//	printf("&arr[0] = %p\n", &arr[0]);  // 数组首元素的地址
+//	printf("arr = %p\n", arr);  // 数组名
+//	printf("&arr = %p\n", &arr);  // 取地址arr，表示的是整个数组的地址，但是打印出来的地址，也是首元素开始
+//
+//	printf("------------------------\n");
+//
+//	printf("&arr[0] + 1 = %p\n", &arr[0] + 1);  // 数组首元素的地址
+//	printf("arr + 1 = %p\n", arr + 1);  // 数组名
+//	printf("&arr + 1 = %p\n", &arr + 1);
+//
+//	return 0;
+//}	
+
+
+
+//int main()
+//{
+//	int arr[10] = { 0 };
+//	int* p = arr;
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	for (int i = 0; i < sz; i++)
+//	{
+//		*p = i + 1;
+//		p++;
+//	}
+//	p = arr;  // 让指针回来，不然就是野指针
+//	for (int i = 0; i < sz; i++)
+//	{
+//		printf("%d ", *(p + i));
+//	}
+//	return 0;
+//}
+
+
+
+//void Func(int *arr, int sz)
+//{
+//	for (int i = 0; i < sz; i++)
+//	{
+//		printf("%d ", arr[i]);
+//	}
+//}
+//int main()
+//{
+//	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
+//	int* p = arr;
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	Func(arr, sz);
+//	return 0;
+//}
+
+
+
+
+// 打印函数
+//void print(int *p, int sz)
+//{
+//	for (int i = 0; i < sz; i++)
+//	{
+//		printf("%d ", *(p + i));
+//	}
+//}
+//
+//// 排序函数
+//void bubble_sort(int arr[], int sz)
+//{
+//	// 比较趟数
+//	for (int i = 0; i < sz - 1; i++)
+//	{
+//		// 比较的对数（有多少对数字要比较）
+//		for (int j = 0; j < sz - 1 - i; j++)
+//		{
+//			// 开始比较
+//			if (arr[j] > arr[j + 1])
+//			{
+//				int temp = arr[j];
+//				arr[j] = arr[j + 1];
+//				arr[j + 1] = temp;
+//			}
+//		}
+//	}
+//}
+//
+//int main()
+//{
+//	int arr[] = { 4,6,1,7,0,3,2 };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	bubble_sort(arr,sz);
+//	print(arr, sz);
+//	return 0;
+//}
+
+
+//void print(int* p, int sz)
+//{
+//	for (int i = 0; i < sz; i++)
+//	{
+//		printf("%d ", *(p + i));
+//	}
+//}
+//
+//// 排序函数: 写成指针的形式
+//void bubble_sort(int *arr, int sz)
+//{
+//	for (int i = 0; i < sz - 1; i++)
+//	{
+//		// 如果数组已经有序了
+//		int flag = 1;
+//
+//		for (int j = 0; j < sz - 1 - i; j++)
+//		{
+//			if (*(arr + j) > *(arr + j + 1))
+//			{
+//				// flag = 0 说明数组暂时还是无序的
+//				flag = 0;
+//				int temp = *(arr + j);
+//				*(arr + j) = *(arr + j + 1);
+//				*(arr + j + 1) = temp;
+//			}
+//		}
+//		if (flag == 1)  // 如果经过一轮排序后，数组是有序的
+//		{
+//			break;  // 直接就跳出循环，不继续排序了
+//		}
+//	}
+//}
+//
+//int main()
+//{
+//	int arr[] = { 4,6,1,7,0,3,2 };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	bubble_sort(arr, sz);
+//	print(arr, sz);
+//	return 0;
+//}
+
+
+
+//int main()
+//{
+//	int a = 10;
+//	int* pa = &a;  // 一级指针
+//	int** ppa = &pa;  // 二级指针
+//	printf("%d\n", a);
+//	printf("%d\n", *pa);
+//	printf("%d\n", **ppa);
+//	return 0;
+//}
+
+
 int main()
 {
-	int arr[] = { 1,2,3,4,5 };
-	printf("arr = %p\n", arr);
-	printf("arr + 1 = %p\n", arr + 1);
+	int a = 10;
+	int b = 10;
+	int c = 10;
+	int* parr[3] = { &a, &b, &c };
 
-	printf("&arr = %p\n", &arr);
-	printf("&arr + 1 = %p\n", &arr + 1);
+	printf("%d\n", *parr[0]);
+	printf("%d\n", *parr[1]);
+	printf("%d\n", *parr[2]);
 
 	return 0;
 }

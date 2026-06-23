@@ -2127,16 +2127,276 @@ void init(int arr[], int sz)
 //}
 
 
+//int main()
+//{
+//	int a = 10;
+//	int b = 20;
+//	int c = 30;
+//	int d = 40;
+//	int* parr[] = { &a, &b, &c, &d };
+//
+//	//printf("%d\n", *parr[0]);
+//	//printf("%d\n", *parr[1]);
+//	//printf("%d\n", *parr[2]);
+//
+//	int sz = sizeof(parr) / sizeof(parr[0]);
+//	for (int i = 0; i < sz; i++)
+//	{
+//		printf("%d ", *(parr[i]));
+//	}
+//
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	// 用指针数组模拟二维数组
+//	int arr1[] = { 1,2,3,4,5 };
+//	int arr2[] = { 2,3,4,5,6 };
+//	int arr3[] = { 3,4,5,6,7 };
+//	int* parr[] = { arr1,arr2,arr3 };
+//	for (int i = 0; i < 3; i++)
+//	{
+//		for (int j = 0; j < 5; j++)
+//		{
+//			printf("%d ", parr[i][j]);
+//		}
+//		printf("\n");
+//	}
+//	return 0;
+//}
+
+
+
+// 字符指针
+//int main()
+//{
+//	//char arr[] = "123456"; // 这个就是一个普通的字符数组, 是可以修改其内容的
+//	//char* p = arr;  // 通过指针进行指向数组的地址
+//	const char* p = "abcdef"; // 这只是一个字符串，不可修改，且是把第一个字符的地址赋值给了 p
+//	// 用const修饰字符指针，因为它本身就不可变，所以加上const进行修饰
+//	printf("%s\n", p); // 用p就可以打印这个常量字符串
+//	return 0;
+//}
+
+
+// 数组指针
+//int main()
+//{
+//	//char* p1 = "abcdef";  // 字符指针
+//	//int* p2 = 123;  // 整型指针
+//
+//	int arr[5] = { 1,2,3,4,5 };
+//	int (*p)[10] = &arr;  // 这就是一个数组指针 ，p就是数组指针变量
+//
+//	char ch[5] = "abc";
+//	char (*p2)[5] = &ch;
+//	return 0;
+//}
+
+//int main()
+//{
+//	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
+//	int(*p)[10] = &arr;  // 数组指针
+//	// 遍历打印出来
+//	for (int i = 0; i < 10; i++)
+//	{
+//		printf("%d ", (*p)[i]);
+//	}
+//
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
+//	int*p = arr;  // 数组指针
+//	// 遍历打印出来
+//	for (int i = 0; i < 10; i++)
+//	{
+//		printf("%d ", p[i]);
+//	}
+//
+//	return 0;
+//}
+
+
+// 二维数组的打印
+//void func(int (*p)[5], int row, int col)
+//{
+//	for (int i = 0; i < row; i++)
+//	{
+//		for (int j = 0; j < col; j++)
+//		{
+//			printf("%d ", *(*(p + i) + j));  // *(*(p + i)+j)
+//		}
+//		printf("\n");
+//	}
+//}
+//int main()
+//{
+//	int arr[3][5] = { {1,2,3,4,5},{2,3,4,5,6},{3,4,5,6,7} };
+//	func(arr,3,5);
+//	return 0;
+//}
+
+
+
+// 函数指针变量
+//int Add(int x,int y)
+//{
+//	return x + y;
+//}
+
+//int main()
+//{
+//	printf("%p\n", Add);  // 函数名即函数的地址
+//	printf("%p\n", &Add); // 取地址也是一样的
+//
+//	// 怎么写成函数指针变量的形式呢？可以类比一下数组指针
+//	//	int (*p)[10] = &arr;  // 这就是一个数组指针 ，p就是数组指针变量
+//	int (*pf)(int, int) = &Add;
+//	return 0;
+//}
+
+
+//char* test(char* ch, int num)
+//{
+//
+//}
+//int main()
+//{
+//	char* (*pt)(char *, int) = &test;  // 形参和返回值类型必须和函数的一样
+//	return 0;
+//}
+
+//int Add(int x, int y)
+//{
+//	return x + y;
+//}
+//int main()
+//{
+//	int (*pf)(int, int) = Add;
+//	//int ret = Add(5, 6);  两种写法都可以
+//	int ret = pf(4, 5);
+//	printf("%d\n", ret);
+//	return 0;
+//}
+
+
+//typedef unsigned int uint;  // 这样就实现了类型重命名
+//typedef int* pint;
+//int main()
+//{
+//	unsigned int num1;
+//	uint num2; // 简化了类型名字的长度
+//
+//	// 想连续定义两个指针变量
+//	int* p3, * p4;  // 只有这样写才可以。
+//	pint p1, p2; // 不过我们使用typedef的话，就可以定义两个int*的指针变量
+//
+//	return 0;
+//}
+
+
+//typedef void(*pf_t)(int);  // 这是一个函数指针, 重命名为pf_t
+//
+//// 函数声明也就简化了
+//pf_t signal(int, pf_t);
+//
+//// 数组指针也是一样
+//int(*p)[5];
+//// 使用typedef也是一样简化，重命名的名字必须要放在*右边
+//typedef int(*parr_t)[5];
+
+//int Add(int x, int y)
+//{
+//	return x + y;
+//}
+//int Sub(int x, int y)
+//{
+//	return x - y;
+//}
+//int main()
+//{
+//	// 函数指针
+//	int (*pf1)(int, int) = Add;
+//	int (*pf1)(int, int) = Sub;
+//	// 希望使用一个数组来存放函数指针，这个时候就需要函数指针数组
+//	int(*pArr[4])(int,int) = {Add,Sub};  // pArr就是函数指针
+//	return 0;
+//}
+
+
+int Add(int x, int y)
+{
+	return x + y;
+}
+int Sub(int x, int y)
+{
+	return x - y;
+}
+int Mul(int x, int y)  // 乘
+{
+	return x * y;
+}
+int Div(int x, int y)  // 除
+{
+	return x / y;
+}
+
+// 菜单函数
+void menu()
+{
+	printf("*********** 计算器 **********\n");
+	printf("*** 1. + 加法   2. - 减法 ***\n");
+	printf("*** 3. * 乘法   4. / 除法 ***\n");
+	printf("******* 0：退出计算器 *******\n");
+}
+// 主函数逻辑
 int main()
 {
-	int a = 10;
-	int b = 10;
-	int c = 10;
-	int* parr[3] = { &a, &b, &c };
-
-	printf("%d\n", *parr[0]);
-	printf("%d\n", *parr[1]);
-	printf("%d\n", *parr[2]);
-
-	return 0;
+	int input = 0;
+	int x = 0, y = 0 ,r = 0;
+	do
+	{
+		menu();
+		printf("请输入你的选择：");
+		scanf("%d", &input);
+		switch (input)
+		{
+		case 1:
+			printf("请输入两个操作数：");
+			scanf("%d %d",&x,&y);
+			r = Add(x, y);
+			printf("结果为：%d\n", r);
+			break;
+		case 2:
+			printf("请输入两个操作数：");
+			scanf("%d %d", &x, &y);
+			r = Sub(x, y);
+			printf("结果为：%d\n", r);
+			break;
+		case 3:
+			printf("请输入两个操作数：");
+			scanf("%d %d", &x, &y);
+			r = Mul(x, y);
+			printf("结果为：%d\n", r);
+			break;
+		case 4:
+			printf("请输入两个操作数：");
+			scanf("%d %d", &x, &y);
+			r = Div(x, y);
+			printf("结果为：%d\n", r);
+			break;
+		case 0:
+			printf("退出计算器\n");
+			break;
+		default :
+			printf("输入错误，请重新输入\n");
+			break;
+		}
+	} while (input);
 }

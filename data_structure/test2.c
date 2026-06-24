@@ -2330,31 +2330,31 @@ void init(int arr[], int sz)
 //}
 
 
-int Add(int x, int y)
-{
-	return x + y;
-}
-int Sub(int x, int y)
-{
-	return x - y;
-}
-int Mul(int x, int y)  // 乘
-{
-	return x * y;
-}
-int Div(int x, int y)  // 除
-{
-	return x / y;
-}
-
-// 菜单函数
-void menu()
-{
-	printf("*********** 计算器 **********\n");
-	printf("*** 1. + 加法   2. - 减法 ***\n");
-	printf("*** 3. * 乘法   4. / 除法 ***\n");
-	printf("******* 0：退出计算器 *******\n");
-}
+//int Add(int x, int y)
+//{
+//	return x + y;
+//}
+//int Sub(int x, int y)
+//{
+//	return x - y;
+//}
+//int Mul(int x, int y)  // 乘
+//{
+//	return x * y;
+//}
+//int Div(int x, int y)  // 除
+//{
+//	return x / y;
+//}
+//
+//// 菜单函数
+//void menu()
+//{
+//	printf("*********** 计算器 **********\n");
+//	printf("*** 1. + 加法   2. - 减法 ***\n");
+//	printf("*** 3. * 乘法   4. / 除法 ***\n");
+//	printf("******* 0：退出计算器 *******\n");
+//}
 // 主函数逻辑
 //int main()
 //{
@@ -2607,8 +2607,78 @@ void menu()
 
 
 
-int main()
-{
-	char(*arr)[10] = 'd';
-	return 0;
-}
+//int main()
+//{
+//	char(*arr)[10] = 'd';
+//	return 0;
+//}
+
+
+
+//int Add(int x, int y)
+//{
+//	return x + y;
+//}
+//int Sub(int x, int y)
+//{
+//	return x - y;
+//}
+//int Mul(int x, int y)  // 乘
+//{
+//	return x * y;
+//}
+//int Div(int x, int y)  // 除
+//{
+//	return x / y;
+//}
+//
+//// 菜单函数
+//void menu()
+//{
+//	printf("*********** 计算器 **********\n");
+//	printf("*** 1. + 加法   2. - 减法 ***\n");
+//	printf("*** 3. * 乘法   4. / 除法 ***\n");
+//	printf("******* 0：退出计算器 *******\n");
+//}
+//
+//void calc(int (*pf)(int ,int))
+//{
+//	int x = 0, y = 0, r = 0;
+//	printf("请输入两个操作数：");
+//	scanf("%d %d", &x, &y);
+//	r = pf(x, y);
+//	printf("结果为：%d\n", r);
+//
+//}
+//// 主函数逻辑
+//int main()
+//{
+//	int input = 0;
+//	do
+//	{
+//		menu();
+//		printf("请输入你的选择：");
+//		scanf("%d", &input);
+//		switch (input)
+//		{
+//		case 1:
+//			calc(Add);
+//			break;
+//		case 2:
+//			calc(Sub);
+//			break;
+//		case 3:
+//			calc(Mul);
+//			break;
+//		case 4:
+//			calc(Div);
+//			break;
+//		case 0:
+//			printf("退出计算器\n");
+//			break;
+//		default:
+//			printf("输入错误，请重新输入\n");
+//			break;
+//		}
+//	} while (input);
+//}

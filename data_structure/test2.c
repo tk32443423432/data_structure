@@ -2356,47 +2356,259 @@ void menu()
 	printf("******* 0：退出计算器 *******\n");
 }
 // 主函数逻辑
+//int main()
+//{
+//	int input = 0;
+//	int x = 0, y = 0 ,r = 0;
+//	do
+//	{
+//		menu();
+//		printf("请输入你的选择：");
+//		scanf("%d", &input);
+//		switch (input)
+//		{
+//		case 1:
+//			printf("请输入两个操作数：");
+//			scanf("%d %d",&x,&y);
+//			r = Add(x, y);
+//			printf("结果为：%d\n", r);
+//			break;
+//		case 2:
+//			printf("请输入两个操作数：");
+//			scanf("%d %d", &x, &y);
+//			r = Sub(x, y);
+//			printf("结果为：%d\n", r);
+//			break;
+//		case 3:
+//			printf("请输入两个操作数：");
+//			scanf("%d %d", &x, &y);
+//			r = Mul(x, y);
+//			printf("结果为：%d\n", r);
+//			break;
+//		case 4:
+//			printf("请输入两个操作数：");
+//			scanf("%d %d", &x, &y);
+//			r = Div(x, y);
+//			printf("结果为：%d\n", r);
+//			break;
+//		case 0:
+//			printf("退出计算器\n");
+//			break;
+//		default :
+//			printf("输入错误，请重新输入\n");
+//			break;
+//		}
+//	} while (input);
+//}
+
+
+//int main()
+//{
+//	int input = 0;
+//	int x = 0, y = 0, ret = 0;
+//	// 创建一个函数指针数组作为转移表
+//	int(*p[5])(int, int) = { 0,Add,Sub,Mul,Div };
+//	do
+//	{
+//		menu();
+//		printf("请输入你的选择：");
+//		scanf("%d", &input);
+//		if (input <= 4 && input >= 1)
+//		{
+//			printf("请输入两个操作数：");
+//			scanf("%d %d", &x, &y);
+//			ret = p[input](x, y);  // 调用对应的函数
+//			printf("运算结果是：%d\n", ret);
+//		}
+//		else if (input == 0)
+//		{
+//			printf("退出计算器\n");
+//			break;
+//		}
+//		else
+//		{
+//			printf("输入错误，请重新输入！\n");
+//		}
+//	} while (input);
+//	return 0;
+//}
+
+
+
+//int main()
+//{
+//	char arr[4] = "ABCD";
+//	for (int i = 0; i < 4; i++)
+//	{
+//		printf("%c ", arr[i]);
+//		int murderer = 0;  // 凶手
+//		if (arr[i] != murderer && arr[i] != murderer && arr[i] == murderer && arr[i] == murderer)
+//		{
+//			printf("%c ", arr[i]);
+//		}
+//	}
+//	return 0;
+//}
+
+
+//int main()
+//{
+//    // 二维数组
+//    int arr[10][10] = { 0 };
+//
+//    // 1. 两边置为1
+//    for (int i = 0; i < 10; i++)
+//    {
+//        arr[i][0] = 1;
+//        arr[i][i] = 1;
+//    }
+//
+//    // 2. 计算中间元素
+//    for (int i = 2; i < 10; i++)
+//    {
+//        for (int j = 1; j < i; j++)
+//        {
+//            arr[i][j] =
+//                arr[i - 1][j - 1]
+//                + arr[i - 1][j];
+//        }
+//    }
+//
+//    // 打印
+//    for (int i = 0; i < 10; i++)
+//    {
+//        for (int j = 0; j <= i; j++)
+//        {
+//            printf("%4d", arr[i][j]);
+//        }
+//        printf("\n");
+//    }
+//
+//    return 0;
+//}
+
+//int main()
+//{
+//	int arr[10][10] = { 0 };
+//
+//	// 1. 两边都置为1
+//	// 假设打印前 6 行, 但是给出10做冗余
+//	for (int i = 0; i < 10; i++)
+//	{
+//		arr[i][0] = 1;
+//		arr[i][i] = 1;
+//	}
+//
+//	// 2. 计算中间的值
+//	for (int i = 2; i < 10; i++)
+//	{
+//		for (int j = 1; j < i; j++)
+//		{
+//			arr[i][j] = arr[i - 1][j - 1] + arr[i - 1][j];
+//		}
+//	}
+//
+//	// 打印
+//	for (int i = 0; i < 10; i++)
+//	{
+//		for (int j = 0; j <= i; j++)
+//		{
+//			printf("%4d", arr[i][j]);
+//		}
+//		printf("\n");
+//	}
+//}
+
+
+
+//int main()
+//{
+//	int arr[] = { 1,2,3,4,5,1,2,3,4,6 };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	for (int i = 0; i < sz; i++)
+//	{
+//		int count = 0;
+//		for (int j = 0; j < sz; j++)
+//		{
+//			if (arr[i] == arr[j])
+//			{
+//				count++;
+//			}
+//		}
+//
+//		if (count == 1)
+//		{
+//			printf("只出现过一次的数字是：%d\n", arr[i]);
+//		}
+//	}
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	int arr[] = { 1,2,3,4,5,1,2,3,4 };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	int ret = 0;
+//
+//	for (int i = 0; i < sz; i++)
+//	{
+//		ret ^= arr[i];
+//	}
+//	printf("只出现过一次的数字是：%d\n", ret);
+//	return 0;
+//}
+
+
+//int main()
+//{
+//    int year = 0;
+//    int month = 0;
+//
+//    printf("请输入年份和月份：");
+//    scanf("%d %d", &year, &month);
+//
+//    int days = 0;
+//
+//    if (month == 2)
+//    {
+//        // 判断闰年
+//        if ((year % 4 == 0 && year % 100 != 0)
+//            || (year % 400 == 0))
+//        {
+//            days = 29;
+//        }
+//        else
+//        {
+//            days = 28;
+//        }
+//    }
+//    else if (month == 1 || month == 3 || month == 5 ||
+//        month == 7 || month == 8 || month == 10 ||
+//        month == 12)
+//    {
+//        days = 31;
+//    }
+//    else if (month == 4 || month == 6 ||
+//        month == 9 || month == 11)
+//    {
+//        days = 30;
+//    }
+//    else
+//    {
+//        printf("月份输入错误！\n");
+//        return 1;
+//    }
+//
+//    printf("%d年%d月有%d天\n", year, month, days);
+//
+//    return 0;
+//}
+
+
+
 int main()
 {
-	int input = 0;
-	int x = 0, y = 0 ,r = 0;
-	do
-	{
-		menu();
-		printf("请输入你的选择：");
-		scanf("%d", &input);
-		switch (input)
-		{
-		case 1:
-			printf("请输入两个操作数：");
-			scanf("%d %d",&x,&y);
-			r = Add(x, y);
-			printf("结果为：%d\n", r);
-			break;
-		case 2:
-			printf("请输入两个操作数：");
-			scanf("%d %d", &x, &y);
-			r = Sub(x, y);
-			printf("结果为：%d\n", r);
-			break;
-		case 3:
-			printf("请输入两个操作数：");
-			scanf("%d %d", &x, &y);
-			r = Mul(x, y);
-			printf("结果为：%d\n", r);
-			break;
-		case 4:
-			printf("请输入两个操作数：");
-			scanf("%d %d", &x, &y);
-			r = Div(x, y);
-			printf("结果为：%d\n", r);
-			break;
-		case 0:
-			printf("退出计算器\n");
-			break;
-		default :
-			printf("输入错误，请重新输入\n");
-			break;
-		}
-	} while (input);
+	char(*arr)[10] = 'd';
+	return 0;
 }

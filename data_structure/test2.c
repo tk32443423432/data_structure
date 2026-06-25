@@ -2682,3 +2682,334 @@ void init(int arr[], int sz)
 //		}
 //	} while (input);
 //}
+
+
+//void qsort(
+//	void* base, 
+//	size_t num, 
+//	size_t size,
+//	int (*compar)(const void*, const void*));
+
+
+
+// 排序整型数据，就需要先实现一个比较函数
+// qsort函数的使用者需要先实现一个比较函数
+//int int_cmp(const void* p1, const void* p2)
+//{
+//	return (*(int*)p1 - *(int*)p2);
+//}
+//
+//int main()
+//{
+//	int arr[] = { 1,3,5,7,9,2,4,6,8,10 };
+//	int i = 0;
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	qsort(arr, sz, sizeof(int), int_cmp);
+//	for (i = 0; i < sz; i++)
+//	{
+//		printf("%d ", arr[i]);
+//	}
+//	printf("\n");
+//	return 0;
+//}
+
+//struct Stu
+//{
+//	char name[20];
+//	int age;
+//};
+// 测试qsort函数排序结构体的数据
+// 先按照名字来比较大小
+//int cmp_stu_by_name(const void* e1, const void* e2)
+//{
+//	return strcmp((*(struct Stu*)e1).name, (*(struct Stu*)e2).name);
+//}
+//int cmp_stu_by_name(const void* e1, const void* e2)
+//{
+//	return strcmp(((struct Stu*)e1)->name , ((struct Stu*)e2)->name);
+//}                            // 这种不要*解引用的，可以使用-> 箭头来表示
+//int cmp_stu_by_age(const void* e1, const void* e2)
+//{
+//	return ((struct Stu*)e1)->age - ((struct Stu*)e1)->age;
+//}
+//void test2()
+//{
+//	struct Stu arr[] = { {"张三",21} ,{"李四",22}, {"王五",23} };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	qsort(arr, sz, sizeof(arr[0]), cmp_stu_by_name);
+//	qsort(arr, sz, sizeof(arr[0]), cmp_stu_by_age);
+//}
+//int main()
+//{
+//	test2();
+//	return 0;
+//}
+
+
+
+//struct Stu
+//{
+//	char name[20];
+//	int age;
+//};
+//
+//int main()
+//{
+//	struct Stu s = { "张三",21 };
+//	//printf("%s %d\n", s.name,s.age);  写法一：访问结构体
+//	struct Stu* ps = &s;  // 写法二：使用指针进行访问结构体
+//	printf("%s\n", (*ps).name);
+//	printf("%d\n", (*ps).age);
+//
+//	printf("%s\n", ps->name);  // 写法三：使用箭头代替*星号
+//	return 0;
+//}
+
+
+
+
+
+//int main()
+//{
+//    int arr[] = { 5, 3, 8, 6, 2 };
+//    int sz = sizeof(arr) / sizeof(arr[0]);
+//
+//    qsort(arr, sz, sizeof(arr[0], );
+//
+//    for (int i = 0; i < sz; i++)
+//    {
+//        printf("%d ", arr[i]);
+//    }
+//
+//    return 0;
+//}
+
+
+//#define MAXSIZE 20  /* 存储空间初始分配量 */
+//typedef int ElemType;  /* ElemType类型根据实际情况而定，这里为int */
+//typedef struct
+//{
+//	ElemType data[MAXSIZE]; /* 数组存储数组元素 */
+//	int length;
+//}SeqList;
+
+//void Swap(char* buf1, char* buf2, int width)
+//{
+//	for (int i = 0; i < width; i++)
+//	{
+//		char tmp = *buf1;
+//		*buf1 = *buf2;
+//		*buf2 = tmp;
+//		buf1++;
+//		buf2++;
+//	}
+//}
+//// 提供一个函数，这个函数能够比较2个整型数据的大小
+//int cmp_int(const void* e1, const void* e2)
+//{
+//	return *(int*)e1 - *(int*)e2;
+//}
+//// 打印函数
+//void print_arr(int arr[], int sz)
+//{
+//	for (int i = 0; i < sz; i++)
+//	{
+//		printf("%d ", arr[i]);
+//	}
+//	printf("\n");
+//}
+//
+//// 排序函数：默认排成升序
+//void bubble_sort(void* base,int sz, int width, 
+//				int (*cmp)(const void* e1, const void* e2))
+//{
+//	// 趟数
+//	for (int i = 0; i < sz - 1; i++)
+//	{
+//		// 假设数组已经排好序了，就使用flag = 1
+//		int flag = 1;
+//		for (int j = 0; j < sz - 1 - i; j++)
+//		{
+//			// 借助cmp指针指向的函数来比较arr[j], arr[j + 1]的大小
+//			// 传递给cmp函数的是arr[j], arr[j + 1]的地址
+//			if (cmp((char*)base + j * width, (char*)base + (j + 1) * width) > 0)
+//			{
+//				Swap((char*)base + j * width, (char*)base + (j + 1) * width, width);
+//				flag = 0;
+//			}
+//		}
+//		if (flag == 1)
+//		{
+//			break;
+//		}
+//	}
+//}
+//
+//// 模仿qsort的功能实现一个通用的冒泡排序
+//void test2()
+//{
+//	int arr[] = { 1,3,5,7,9,2,4,6,8,10 };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	bubble_sort(arr, sz, sizeof(arr[0]), cmp_int);
+//	print_arr(arr,sz);
+//}
+//
+//struct Stu
+//{
+//	char name[20];
+//	int age;
+//};
+//
+//// 按照姓名进行比较
+//int cmp_stu_by_name(const void* e1, const void* e2)
+//{
+//	return strcmp(((struct Stu*)e1)->name, ((struct Stu*)e2)->name);
+//}
+//
+//// 按照年龄进行比较
+//int cmp_stu_by_age(const void* e1, const void* e2)
+//{
+//	return strcmp(((struct Stu*)e1)->age, ((struct Stu*)e2)->age);
+//}
+//
+//void test3()
+//{
+//	struct Stu arr[] = { {"张三",20} ,{"李四",21} ,{"王五",22} };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	bubble_sort(arr, sz, sizeof(arr[0]), cmp_stu_by_name);
+//	bubble_sort(arr, sz, sizeof(arr[0]), cmp_stu_by_age);
+//}
+//int main()
+//{
+//	//test2();
+//	test3();
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	char arr1[3] = { 'a','b','c'};
+//	char arr2[] = "abc";
+//	printf("%d\n", strlen(arr1));  // 35
+//	printf("%d\n", strlen(arr2));  // 3
+//
+//	printf("----------------------\n");
+//
+//	printf("%zd\n", sizeof(arr1));  // 3 这个没有
+//	printf("%zd\n", sizeof(arr2)); // 4 有隐藏的\0
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	int arr[] = { 1,2,3,4 };  // 4个元素，一个元素4个字节大小
+//	printf("%zd\n", sizeof(arr));  // 16 = 4 * 4
+//
+//
+//	printf("%zd\n", sizeof(&arr));
+//	return 0;
+//}
+
+
+//void print_arr(int (*arr)[5], int row, int col);
+//int main()
+//{
+//	int arr[3][5] = { 1,2,3,4,5,6,7,8,9,10 };
+//	print_arr(arr, 3, 5);
+//
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	int aa[2][5] = { 10,9,8,7,6,5,4,3,2,1 };
+//	int* ptr1 = (int*)(&aa + 1);
+//	int* ptr2 = (int*)(*(aa + 1));
+//	printf("%d,%d", *(ptr1 - 1), *(ptr2 - 1));
+//	return 0;
+//}
+
+
+
+//int main()
+//{
+//	//char arr[] = "abc";
+//
+//	//printf("%d\n", sizeof(arr));  // 'a' 'b' 'c' '\0'  4
+//	//printf("%d\n", strlen(arr));  // 只算有效字符  3
+//
+//
+//	char* p = "abc";
+//
+//	printf("%d\n", sizeof(p));  // 8   指针大小
+//	printf("%d\n", strlen(p));  // 3   字符串长度
+//
+//
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	int a = 10;
+//	printf("%d\n", sizeof(a));  // 4: 是int类型的字节大小，在32/64位环境下
+//	printf("%d\n", sizeof(int));  // 是一样的
+//
+//	return 0;
+//}
+
+
+
+//int main()
+//{
+//	int a[] = { 1,2,3,4 };
+//	printf("%d\n", sizeof(a));  // 4 * 4 = 16 计算的是整个数组的大小
+//	printf("%d\n", sizeof(a + 0));  // a是数组首元素的地址，a + 0不变，还是数组首元素的地址，
+//			// 计算的是地址的大小，但是我这里是x64的环境，所以输出的是：8
+//	printf("%d\n", sizeof(*a));  // a是数组首元素的地址, *a是首元素，计算的是首元素的字节大小，4
+//	printf("%d\n", sizeof(a + 1));  // a是数组首元素的地址, a + 1跳到第二个元素，计算第二个元素的字节大小：4/8(32位/64位)
+//	printf("%d\n", sizeof(a[1]));  // 计算的就是数组下标为1的元素的地址：4个字节
+//	
+//	printf("%d\n", sizeof(&a));  // &a ，取出的是数组的地址，地址要看x32/x64: 4/8
+//	printf("%d\n", sizeof(*&a));  // &a: 取出的是整个数组的地址，就是：int (*a)[4]
+//						// int (*a)[4]对它就行解引用，int (*)[4] = 16
+//						// *&a 这里的解引用访问到16个字节大小
+//	printf("%d\n", sizeof(&a + 1));  // &a + 1：跳过整个数组，指向了4后面的数组，
+//					// 其实也是指向了4后面的地址，只要是单一的地址，就只能是：4/8(32位/64位)
+//	printf("%d\n", sizeof(a[0]));  // 4: 因为这是计算下标为0的元素的字节大小：4个字节
+//	printf("%d\n", sizeof(&a[0]));  // 4/8：因为a[0]首元素的地址，对地址进行解引用，所以就是4/8
+//	printf("%d\n", sizeof(&a[0] + 1));  // 4 / 8：因为a[0]首元素的地址，a[0] + 1 跳到了下标为1的元素的地址，
+//						// 再对地址进行解引用，所以就是4 / 8
+//
+//	// 可以这么说如果是：a[0] 这种单独数组的元素下标，就是看数组的数据类型是什么，int 就是4个字节，在32位环境下是4个字节大小，
+//	// 在64位环境下是4/8个字节大小，都是对数组中单独一个元素的字节大小进行计算的。
+//
+//	// 如果对数组进行取地址 &a, 那么也是看32位/64位，也就是4/8个字节大小
+//	// 如果对数组进行解引用 *a 或者 *&a， 那就要具体情况，具体分析。
+//	return 0;			
+//}
+
+
+
+// 字符数组的sizeof()理解
+int main()
+{
+	char arr[] = { 'a','b','c','d','e','f' };
+	printf("%d\n", sizeof(arr));  // arr是单独放在sizeof()当中的，计算的就是整个数组的大小，数组有6个元素，输出就是6
+	printf("%d\n", sizeof(arr + 0));  // arr是数组名，是数组名就是数组的首元素的地址，是地址就是4/8个字节大小
+	printf("%d\n", sizeof(*arr));  // arr是是数组的首元素的地址，*arr：对数组名进行解引用，*arr就是首元素，大小是1个字节
+					// char是基本数据类型，和int一样，但是char在32位/64位环境下是1个byte（字节）
+					// int 是4个比特位,也就是4个字节。
+
+	printf("%d\n", sizeof(arr[1]));  // 下标为1的元素的字节大小，就是char类型的字节大小，1个字节
+	
+	printf("%d\n", sizeof(&arr)); // 对arr数组名进行取地址，是地址就是4/8
+	printf("%d\n", sizeof(&arr + 1)); // &arr + 1即跳过了整个数组，指向了数组元素的后面的地址，是地址也是
+
+
+
+	return 0;
+}

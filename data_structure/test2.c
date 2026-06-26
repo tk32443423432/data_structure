@@ -2995,21 +2995,243 @@ void init(int arr[], int sz)
 
 
 // 字符数组的sizeof()理解
+//int main()
+//{
+//	char arr[] = { 'a','b','c','d','e','f' };
+//	printf("%d\n", sizeof(arr));  // arr是单独放在sizeof()当中的，计算的就是整个数组的大小，数组有6个元素，输出就是6
+//	printf("%d\n", sizeof(arr + 0));  // arr是数组名，是数组名就是数组的首元素的地址，是地址就是4/8个字节大小
+//	printf("%d\n", sizeof(*arr));  // arr是是数组的首元素的地址，*arr：对数组名进行解引用，*arr就是首元素，大小是1个字节
+//					// char是基本数据类型，和int一样，但是char在32位/64位环境下是1个byte（字节）
+//					// int 是4个比特位,也就是4个字节。
+//
+//	printf("%d\n", sizeof(arr[1]));  // 下标为1的元素的字节大小，就是char类型的字节大小，1个字节
+//	
+//	printf("%d\n", sizeof(&arr)); // 对arr数组名进行取地址，是地址就是4/8
+//	printf("%d\n", sizeof(&arr + 1)); // &arr + 1即跳过了整个数组，指向了数组元素的后面的地址，是地址也是
+//
+//	return 0;
+//}
+
+
+
+//struct Stu
+//{
+//	char name[20];  // 名字
+//	int age;  // 年龄
+//	char sex[5];  // 
+//	char id[20];
+//};
+//int main()
+//{
+//	// 按照结构体成员的顺序初始化
+//	struct Stu s = { "张三",20,"男","20232211" };
+//	printf("name: %s\n", s.name);
+//	printf("age: %d\n", s.age);
+//	printf("id: %s\n", s.id);
+//
+//	printf("---------------------------\n");
+//	struct Stu s2 = { .age = 19, .id = "22321321", .name = "李四", .sex = "男" };
+//	printf("name: %s\n", s2.name);
+//	printf("id: %s\n", s2.id);
+//	printf("sex: %s\n", s2.sex);
+//	printf("age: %d\n", s2.age);
+//
+//	return 0;
+//}
+
+
+// 匿名结构体类型
+//struct
+//{
+//	int a;
+//	char c;
+//	double d;
+//}x;
+//
+//struct
+//{
+//	int a;
+//	int b;
+//	float f;
+//	char c;
+//}a[20], *p;
+
+
+
+// 结构的自引用
+//struct Node
+//{
+//	int data;
+//	struct Node* next;
+//};
+
+
+// 定义结构体时，不要使用匿名结构体
+//typedef struct Node
+//{
+//	int data;
+//	struct Node* next;
+//};
+
+
+//struct S1
+//{
+//	char c1;
+//	int i;
+//	char c2;
+//};
+//struct S2
+//{
+//	char c1;
+//	char c2;
+//	int i;
+//};
+//int main()
+//{
+//	printf("%zd\n", sizeof(struct S1));  // 12
+//	printf("%zd\n", sizeof(struct S2)); /// 8
+//	return 0;
+//}
+
+
+//struct S
+//{
+//	int a;
+//	int b;
+//};
+//int main()
+//{
+//	struct S a, * p = &a;
+//	a.a = 99;
+//	printf("%d\n", (*p).a);
+//	return 0;
+//}
+
+//typedef struct {
+//	int a; // 4
+//	char b;  // 1
+//	short c;  // 
+//	short d;
+//}AA_t;
+//
+//int main()
+//{
+//	printf("%zd\n", sizeof( AA_t));
+//	return 0;
+//}
+
+//struct A
+//{
+//	int a;
+//	short b;
+//	int c;
+//	char d;
+//};
+//
+//struct B
+//{
+//	int a;
+//	short b;
+//	char c;
+//	int d;
+//};	
+//
+//int main()
+//{
+//	printf("%zd\n", sizeof(struct A));
+//	printf("%zd\n", sizeof(struct B));
+//	return 0;
+//}
+
+
+
+//#pragma pack(4)/*编译选项，表示4字节对齐 平台：VS2013。语言：C语言*/
+////假设long 是4个字节
+//int main(int argc, char* argv[])
+//{
+//	struct tagTest1
+//	{
+//		short a;
+//		char d;
+//		long b;
+//		long c;
+//	};
+//	struct tagTest2
+//	{
+//		long b;
+//		short c;
+//		char d;
+//		long a;
+//	};
+//	struct tagTest3
+//	{
+//		short c;
+//		long b;
+//		char d;
+//		long a;
+//	};
+//	struct tagTest1 stT1;
+//	struct tagTest2 stT2;
+//	struct tagTest3 stT3;
+//
+//	printf("%d %d %d", sizeof(stT1), sizeof(stT2), sizeof(stT3));
+//	return 0;
+//}
+//#pragma pack()
+
+//int main()
+//{
+//	unsigned char puc[4];
+//	struct tagPIM
+//	{
+//		unsigned char ucPim1;
+//		unsigned char ucData0 : 1;
+//		unsigned char ucData1 : 2;
+//		unsigned char ucData2 : 3;
+//	}*pstPimData;
+//	pstPimData = (struct tagPIM*)puc;
+//	memset(puc, 0, 4);
+//	pstPimData->ucPim1 = 2;
+//	pstPimData->ucData0 = 3;
+//	pstPimData->ucData1 = 4;
+//	pstPimData->ucData2 = 5;
+//	printf("%02x %02x %02x %02x\n", puc[0], puc[1], puc[2], puc[3]);
+//	return 0;
+//}
+
+
+
+struct S
+{
+	int data[1000];
+	int num;
+};
+
+void print1(struct S t)
+{
+	int i = 0;
+	for (i = 0; i < 5; i++)
+	{
+		printf("%d ", t.data[i]);
+	}
+	printf("\n");
+	printf("%d\n", t.num);
+}
+
+void print2(struct S* ps)
+{
+	int i = 0;
+	for (i = 0; i < 5; i++)
+	{
+		printf("%d ", ps->data[i]);
+	}
+	printf("\n");
+	printf("%d\n", ps->num);
+}
 int main()
 {
-	char arr[] = { 'a','b','c','d','e','f' };
-	printf("%d\n", sizeof(arr));  // arr是单独放在sizeof()当中的，计算的就是整个数组的大小，数组有6个元素，输出就是6
-	printf("%d\n", sizeof(arr + 0));  // arr是数组名，是数组名就是数组的首元素的地址，是地址就是4/8个字节大小
-	printf("%d\n", sizeof(*arr));  // arr是是数组的首元素的地址，*arr：对数组名进行解引用，*arr就是首元素，大小是1个字节
-					// char是基本数据类型，和int一样，但是char在32位/64位环境下是1个byte（字节）
-					// int 是4个比特位,也就是4个字节。
-
-	printf("%d\n", sizeof(arr[1]));  // 下标为1的元素的字节大小，就是char类型的字节大小，1个字节
-	
-	printf("%d\n", sizeof(&arr)); // 对arr数组名进行取地址，是地址就是4/8
-	printf("%d\n", sizeof(&arr + 1)); // &arr + 1即跳过了整个数组，指向了数组元素的后面的地址，是地址也是
-
-
-
+	struct S s = { {1,2,3,4,5},100 };
+	print1(s);
+	print2(&s);
 	return 0;
 }

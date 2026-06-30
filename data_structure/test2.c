@@ -3201,37 +3201,208 @@ void init(int arr[], int sz)
 
 
 
-struct S
-{
-	int data[1000];
-	int num;
-};
+//struct S
+//{
+//	int data[1000];
+//	int num;
+//};
+//
+//void print1(struct S t)
+//{
+//	int i = 0;
+//	for (i = 0; i < 5; i++)
+//	{
+//		printf("%d ", t.data[i]);
+//	}
+//	printf("\n");
+//	printf("%d\n", t.num);
+//}
+//
+//void print2(struct S* ps)
+//{
+//	int i = 0;
+//	for (i = 0; i < 5; i++)
+//	{
+//		printf("%d ", ps->data[i]);
+//	}
+//	printf("\n");
+//	printf("%d\n", ps->num);
+//}
+//int main()
+//{
+//	struct S s = { {1,2,3,4,5},100 };
+//	print1(s);
+//	print2(&s);
+//	return 0;
+//}
 
-void print1(struct S t)
-{
-	int i = 0;
-	for (i = 0; i < 5; i++)
-	{
-		printf("%d ", t.data[i]);
-	}
-	printf("\n");
-	printf("%d\n", t.num);
-}
 
-void print2(struct S* ps)
-{
-	int i = 0;
-	for (i = 0; i < 5; i++)
-	{
-		printf("%d ", ps->data[i]);
-	}
-	printf("\n");
-	printf("%d\n", ps->num);
-}
-int main()
-{
-	struct S s = { {1,2,3,4,5},100 };
-	print1(s);
-	print2(&s);
-	return 0;
-}
+//int main()
+//{
+//	int val = 20; // 在栈空间上开辟四个字节 
+//	char arr[10] = { 0 };  // 在栈空间上开辟10个字节的连续空间
+//	return 0; 
+//}
+//void* malloc(size_t size);
+//
+//void free(void* ptr);
+
+
+//int main()
+//{
+//	int num = 0;
+//	scanf("%d", &num);
+//	int arr[num] = { 0 };
+//	int* ptr = NULL;
+//	ptr = (int*)malloc(num * sizeof(int));
+//	if (NULL != ptr)  // 判断ptr指针是否为空
+//	{
+//		int i = 0;
+//		for (i = 0; i < num; i++)
+//		{
+//			*(ptr + i) = 0;
+//		}
+//	}
+//	free(ptr);  // 释放ptr所指向的动态内存
+//	ptr = NULL;  // 一定要置为NULL, 否则会
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	int* p = (int*)calloc(10, sizeof(int));
+//	if (NULL != p)
+//	{
+//		int i = 0;
+//		for (i = 0; i < 10; i++)
+//		{
+//			printf("%d ", *(p + i));  // 全部初始化为0
+//		}
+//	}
+//	free(p);
+//	p = NULL;
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	int* p = (int*)malloc(10 * sizeof(int));  // malloc不知道你要返回什么类型，所以需要自己指定返回类型才行
+//	if (p == NULL)
+//	{
+//		return 1;
+//	}
+//
+//	for (int i = 0; i < 5; i++)
+//	{
+//		printf("%d ", p[i]);
+//	}
+//
+//	free(p);
+//	p = NULL;
+//	return 0;
+//}
+
+
+
+//int main()
+//{
+//	int* p = (int*)calloc(5, sizeof(int));
+//	for (int i = 0; i < 5; i++)
+//	{
+//		printf("%d ", p[i]);
+//	}
+//	return 0;
+//}
+//void* realloc(void* ptr, size_t size);
+//
+//int main()
+//{
+//	// 这是malloc函数的写法
+//	int* p = (int*)malloc(5 * sizeof(int));
+//
+//	// 这是realloc函数的写法, 后来扩大了
+//	p = (int*)realloc(p, sizeof(int));
+//
+//	int* tmp = (int*)realloc(p, 100 * sizeof(int));
+//
+//
+//	return 0;
+//}
+
+
+
+//int main()
+//{
+//	// 1. malloc申请5个int
+//	int* p = malloc(5 * sizeof(int));
+//	if (p == NULL)
+//	{
+//		return 1;
+//	}
+//
+//	for (int i = 0; i < 5; i++)
+//	{
+//		p[i] = i + 1;
+//	}
+//
+//	// 2. realloc扩容到10个int
+//	int* tmp = realloc(p, 10 * sizeof(int));
+//	if (tmp != NULL)
+//	{
+//		p = tmp;
+//		for (int i = 5; i < 10; i++)
+//		{
+//			p[i] = i + 1;
+//		}
+//	}
+//
+//	// 输出10个元素
+//	for (int i = 0; i < 10; i++)
+//	{
+//		printf("%d ", p[i]);
+//	}
+//	printf("\n");
+//
+//	// 3. 释放内存
+//	free(p);
+//	p = NULL;
+//
+//	// 4. calloc申请5个int(自动初始化为0)
+//	int* q = calloc(5, sizeof(int));
+//	if (q == NULL)
+//	{
+//		return 1;
+//	}
+//
+//	for (int i = 0; i < 5; i++)
+//	{
+//		printf("%d ", q[i]);
+//	}
+//	printf("\n");
+//	
+//	free(q);
+//	q = NULL;
+//
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	int* p = (int*)calloc(10, sizeof(int));
+//	if (NULL != p)
+//	{
+//		int i = 0;
+//		for (i = 0; i < 10; i++)
+//		{
+//			printf("%d ", *(p + i));  // 全部初始化为0
+//		}
+//	}
+//	free(p);
+//	p = NULL;
+//	return 0;
+//}
+
+

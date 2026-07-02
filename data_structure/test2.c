@@ -3406,3 +3406,377 @@ void init(int arr[], int sz)
 //}
 
 
+
+//#include <stdio.h>
+//#include <stdlib.h>
+//
+//int main()
+//{
+//    // 1. malloc申请5个int
+//    int* p = malloc(5 * sizeof(int));
+//    if (p == NULL)
+//    {
+//        return 1;
+//    }
+//
+//    for (int i = 0; i < 5; i++)
+//    {
+//        p[i] = i + 1;
+//    }
+//
+//    // 2. realloc扩容到10个int
+//    int* tmp = realloc(p, 10 * sizeof(int));
+//    if (tmp != NULL)
+//    {
+//        p = tmp;
+//
+//        for (int i = 5; i < 10; i++)
+//        {
+//            p[i] = i + 1;
+//        }
+//    }
+//
+//    // 输出10个元素
+//    for (int i = 0; i < 10; i++)
+//    {
+//        printf("%d ", p[i]);
+//    }
+//    printf("\n");
+//
+//    // 3. 释放内存
+//    free(p);
+//    p = NULL;
+//
+//    // 4. calloc申请5个int（自动初始化为0）
+//    int* q = calloc(5, sizeof(int));
+//    if (q == NULL)
+//    {
+//        return 1;
+//    }
+//
+//    for (int i = 0; i < 5; i++)
+//    {
+//        printf("%d ", q[i]);
+//    }
+//    printf("\n");
+//
+//    free(q);
+//    q = NULL;
+//
+//    return 0;
+//}
+
+
+//int main()
+//{
+//	// 使用malloc函数模拟开辟一个二维数组
+//	// 使用malloc函数模拟开辟一个3*5的整型二维数组，开辟好后，使用二维数组的下标访问形式，访问空间
+//	int (*p)[5] = malloc(3 * sizeof(int[5]));
+//
+//	if (p == NULL)
+//	{
+//		return 1;
+//	}
+//
+//	// 给二维数组赋值
+//	for (int i = 0; i < 3; i++)
+//	{
+//		for (int j = 0; j < 5; j++)
+//		{
+//			p[i][j] = i * 10 + j;
+//		}
+//	}
+//	// 打印二维数组
+//	for (int i = 0; i < 3; i++)
+//	{
+//		for (int j = 0; j < 5; j++)
+//		{
+//			printf("%3d", p[i][j]);
+//		}
+//		printf("\n");
+//	}
+//	free(p); 
+//	p = NULL;
+//
+//
+//	return 0;
+//}
+
+
+//size_t strlen(const char* str);
+
+
+//struct Test
+//{
+//	int Num;
+//	char* pcName;
+//	short sDate;
+//	char cha[2];
+//	short sBa[4];
+//}*p = (struct Test*)0x100000;
+//
+//int main()
+//{
+//	printf("%p\n", p + 0x1);
+//	printf("%p\n", (unsigned long)p + 0x1);
+//	printf("%p\n", (unsigned int*)p + 0x1);
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	int aa[2][5] = { 1,2,3,4,5,6,7,8,9,10 };
+//	int* ptr1 = (int*)(&aa + 1);
+//	int* ptr2 = (int*)(*(aa + 1));
+//	printf("%d %d", *(ptr1 - 1), *(ptr2 - 1));
+//	return 0;
+//}
+
+
+// strcpy模拟实现
+//char *my_strcpy(char *tiget, const char *src)
+//{
+//	char* ret = tiget;
+//	assert(tiget && src);
+//	while (*src != '\0')
+//	{
+//		*tiget = *src;
+//		*tiget++;
+//		*src++;
+//	}
+//	*tiget = *src;
+//	return ret;
+//}
+//int main()
+//{
+//	char arr1[] = "abcdef";
+//	char arr2[20] = "--------------";
+//	char * pr = my_strcpy(arr2, arr1);  // string copy 字符串拷贝
+//	printf("%s\n", arr2);
+//	printf("%s\n", pr);
+//
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	int i = 0;
+//	char str[] = "Test String......\n";
+//	char c;
+//	while (str[i])
+//	{
+//		c = str[i];
+//		if (islower(c))
+//			c -= 32;
+//		putchar(c);
+//		i++;
+//	}
+//	return 0;
+//}
+
+
+//int my_strlen(const char * str)
+//{
+//	int count = 0;
+//	assert(str);
+//	while (*str)
+//	{
+//		count++;
+//		str++;
+//	}
+//	return count;
+//}
+//int main()
+//{
+//	char arr1[] = "abceffg";
+//	int ret = my_strlen(arr1);
+//	printf("%d\n", ret);
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	const char* str = "abcdef";
+//	printf("%zd\n", strlen(str));
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	const char* str1 = "abcdef";
+//	const char* str2 = "bbb";
+//	//if (strlen(str2) > strlen(str1))
+//	//{
+//	//	printf("str2 > str1\n");
+//	//}
+//	//else
+//	//{
+//	//	printf("str1 > str2\n");
+//	//}
+//	if ((int)strlen(str2) - (int)strlen(str1) > 0)
+//	{
+//		printf("str2 > str1\n");
+//	}
+//	else
+//	{
+//		printf("str1 > str2\n");
+//	}
+//	printf("%zu\n", strlen(str1));  //6
+//
+//	return 0;
+//}
+
+
+// 不能创建临时变量计数器：my_strlen模拟实现
+//int my_strlen(const char * str)
+//{
+//	assert(str);
+//	if (*str == '\0')
+//	{
+//		return 0;
+//	}
+//	else
+//	{
+//		return 1 + my_strlen(str + 1);
+//	}
+//}
+
+
+// 使用指针 - 指针的方式
+//int my_strlen(char *str)
+//{
+//	assert(str);
+//	char* p = str;
+//	while (*p != '\0')
+//	{
+//		p++;
+//	}
+//	return p - str;
+//}
+//int main()
+//{
+//	char arr1[] = "ancedwa";
+//
+//	int ret = my_strlen(arr1);
+//	printf("%d\n", ret);
+//	return 0;
+//}
+
+
+
+// my_strcpy 模拟实现
+//char * my_strcpy(char *dest, const char * src)
+//{
+//
+//}
+//int main()
+//{
+//	char arr1[10] = { 0 };
+//	char arr2[] = "hello";
+//	my_strcpy(arr1, arr2);  // 目标地址，起始地址
+//	printf("%s\n", arr1);
+//	return 0;
+//}
+
+
+
+//char * my_strcat(char * dest, char * src)
+//{
+//	char* ret = dest;
+//	assert(dest && src);
+//
+//	// 1. 找\0
+//	while (*dest)
+//	{
+//		dest++;
+//	}
+//	// 2. 数据的拷贝
+//	while (*dest++ = *src++)
+//	{
+//		;
+//	}
+//	return ret;
+//}
+//
+//int main()
+//{
+//	char arr1[20] = "hello\0xxxxxxxxxxx";
+//	char arr2[] = "world";
+//	my_strcat(arr1, arr2);
+//	printf("%s\n", arr1);
+//	return 0;
+//}
+
+
+
+//int my_strlen(const char * s1, const char * s2)
+//{
+//	assert(s1 && s2);
+//	while (*s1 == *s2)
+//	{
+//		if (*s1 == '\0')
+//			return 0;
+//		s1++;
+//		s2++;
+//	}
+//	if (*s1 > *s2)
+//		return 1;
+//	else
+//		return -1;
+//}
+//int main()
+//{
+//	char arr1[] = "abcdef";
+//	char arr2[] = "abcd";
+//	int ret = my_strlen(arr1, arr2);
+//	if (ret > 0)
+//	{
+//		printf(">\n");
+//	}
+//	else if (ret < 0)
+//	{
+//		printf("<\n");
+//	}
+//	else
+//	{
+//		printf("==\n");
+//	}
+//	return 0;
+//}
+
+
+
+int my_strcmp(const char * str1, const char * str2)
+{
+	int ret = 0;
+	assert(str1 != NULL);
+	assert(str2 != NULL);
+	while (*str1 == *str2)
+	{
+		if (*str1 == '\0')
+			return 0;
+		str1++;
+		str2++;
+	}
+	return *str1 - *str2;
+}
+
+int main()
+{
+	char arr1[] = "abcdefg";
+	char arr2[] = "abq";
+	int ret = my_strcmp(arr1, arr2);
+	printf("%d\n", ret);  // -1
+
+	if (ret > 0)
+		printf("arr1 > arr2\n");
+	else if (ret == 0)
+		printf("arr1 == arr2\n");
+	else
+		printf("arr1 < arr2\n");  // 输出arr1 < arr2
+	return 0;
+}
